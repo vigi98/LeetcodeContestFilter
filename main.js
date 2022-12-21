@@ -15,6 +15,7 @@ function createRequireMentObject(page, contestName, lang) {
 
 (async ()=>{
     const contestName = 'weekly-contest-320';
+    const totalPagesRequired=5;
     const validUrl = await leetcodeApi.isValidContestName(contestName);
     
     if(!validUrl){
@@ -22,8 +23,8 @@ function createRequireMentObject(page, contestName, lang) {
         return;
     }
 
-    for(let i=1;i<=5;i++){
-        const requireMents = createRequireMentObject(i,contestName,'cpp');
+    for(let i=1;i<=totalPagesRequired;i++){
+        const requireMents = createRequireMentObject(i,contestName,'java');
         await sleep(300);
         getSolutions(requireMents)
     }
